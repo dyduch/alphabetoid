@@ -2,23 +2,23 @@ import {Ball} from "./ball.js"
 import {Paddle} from "./paddle.js";
 
 function checkCollisionOnYAxis(ball, paddle) {
-    return ball.y === paddle.y;
+    return ball.y >= paddle.y - 2 && ball.y <= paddle.y + 2;
 }
 
 function leftSidePaddleHit(ball, paddle) {
     const paddleLeft = paddle.x;
-    return ball.x >= paddleLeft && ball.x < paddleLeft + paddle.radius * 2;
+    return ball.x >= paddleLeft - 2 && ball.x < paddleLeft + paddle.width / 4;
 }
 
 function middlePaddleHit(ball, paddle) {
     const paddleLeft = paddle.x;
     const paddleRight = paddle.x + paddle.width;
-    return ball.x >= paddleLeft + paddle.radius * 2 && ball.x < paddleRight - paddle.radius * 2;
+    return ball.x >= paddleLeft + paddle.width / 4 && ball.x < paddleRight - paddle.width / 4;
 }
 
 function rightSidePaddleHit(ball, paddle) {
     const paddleRight = paddle.x + paddle.width;
-    return ball.x >= paddleRight - paddle.radius * 2 && ball.x <= paddleRight;
+    return ball.x >= paddleRight - paddle.width / 4 && ball.x <= paddleRight + 2;
 }
 
 function changeSpeedForSameSide(ball) {

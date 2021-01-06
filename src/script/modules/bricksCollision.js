@@ -1,4 +1,5 @@
 import {BrickBoard, Brick} from "./bricks.js";
+import {Stats} from "./stats.js";
 
 function collidesLeft(ball, brick) {
     return ball.x >= brick.x - 2 && ball.x <= brick.x + 2
@@ -35,13 +36,14 @@ function bounceBall(ball, collidingBrick) {
     }
 }
 
-export function checkBallBricksCollision(ball, brickBoard) {
+export function checkBallBricksCollision(ball, brickBoard, stats) {
     const collidingBrick = brickBoard.bricks.find(brick => collidesWithBall(ball, brick));
     const collidingBrickIndex = brickBoard.bricks.indexOf(collidingBrick);
 
     if (collidingBrickIndex !== -1) {
         brickBoard.removeBrick(collidingBrickIndex);
         bounceBall(ball, collidingBrick);
+        stats.points += 1;
     }
 
 }

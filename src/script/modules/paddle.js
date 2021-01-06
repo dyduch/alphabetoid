@@ -15,6 +15,8 @@ export class Paddle {
         this.minX = minLeft;
         this.maxX = maxRight;
 
+        this.addListeners();
+
     }
 
     get x() {
@@ -87,35 +89,42 @@ export class Paddle {
     }
 
     addListeners() {
-        window.addEventListener("keydown", (event) => {
-            if (event.defaultPrevented) {
-                return;
-            }
+        window.addEventListener("keyup", this.keyUp, true);
+        window.addEventListener("keydown", this.keyDown, true);
+    }
 
-            if (event.key === "ArrowLeft") {
-                this.leftDown();
-            } else if (event.key === "ArrowRight") {
-                this.rightDown();
-            } else {
-                return;
-            }
-            event.preventDefault();
-        }, true);
+    removeListeners() {
+        window.removeEventListener("keyup", this.keyUp, true);
+        window.removeEventListener("keydown", this.keyDown, true);
+    }
 
-        window.addEventListener("keyup", (event) => {
-            if (event.defaultPrevented) {
-                return;
-            }
+    keyUp = (event) => {
+        if (event.defaultPrevented) {
+            return;
+        }
 
-            if (event.key === "ArrowLeft") {
-                this.leftUp()
-            } else if (event.key === "ArrowRight") {
-                this.rightUp();
-            } else {
-                return;
-            }
-            event.preventDefault();
-        }, true);
+        if (event.key === "ArrowLeft") {
+            this.leftUp()
+        } else if (event.key === "ArrowRight") {
+            this.rightUp();
+        } else {
+            return;
+        }
+        event.preventDefault();
+    }
 
+    keyDown = (event) => {
+        if (event.defaultPrevented) {
+            return;
+        }
+
+        if (event.key === "ArrowLeft") {
+            this.leftDown()
+        } else if (event.key === "ArrowRight") {
+            this.rightDown();
+        } else {
+            return;
+        }
+        event.preventDefault();
     }
 }

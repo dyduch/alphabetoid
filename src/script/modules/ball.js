@@ -70,9 +70,13 @@ export class Ball {
             this._dx = -this._dx;
         }
         
-        if (this._y >= this.maxY || this._y <= this.minY ) {
+        if (this._y <= this.minY ) {
             this._dy = -this._dy;
         }
-        
+
+        if (this._y >= this.maxY ) {
+            window.dispatchEvent(new Event('lostball'));
+        }
+
     }
 }
