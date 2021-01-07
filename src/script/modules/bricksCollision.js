@@ -2,22 +2,22 @@ import {BrickBoard, Brick} from "./bricks.js";
 import {Stats} from "./stats.js";
 
 function collidesLeft(ball, brick) {
-    return ball.x >= brick.x - 2 && ball.x <= brick.x + 2
+    return ball.x + ball.radius >= brick.x - 2 && ball.x + ball.radius <= brick.x + 2
         && (ball.y >= brick.y && ball.y <= brick.y + brick.height);
 }
 
 function collidesRight(ball, brick) {
-    return ball.x >= brick.x + brick.width - 2 && ball.x <= brick.x + brick.width + 2
+    return ball.x - ball.radius >= brick.x + brick.width - 2 && ball.x - ball.radius <= brick.x + brick.width + 2
         && (ball.y >= brick.y && ball.y <= brick.y + brick.height);
 }
 
 function collidesDown(ball, brick) {
-    return ball.y >= brick.y + brick.height - 2 && ball.y <= brick.y + brick.height + 2
+    return ball.y - ball.radius >= brick.y + brick.height - 2 && ball.y - ball.radius <= brick.y + brick.height + 2
         && (ball.x >= brick.x && ball.x <= brick.x + brick.width);
 }
 
 function collidesUp(ball, brick) {
-    return ball.y >= brick.y - 2 && ball.y <= brick.y + 2
+    return ball.y + ball.radius >= brick.y - 2 && ball.y + ball.radius <= brick.y + 2
         && (ball.x >= brick.x && ball.x <= brick.x + brick.width);
 }
 

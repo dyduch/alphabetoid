@@ -2,12 +2,12 @@ import {Ball} from "./ball.js"
 import {Paddle} from "./paddle.js";
 
 function checkCollisionOnYAxis(ball, paddle) {
-    return ball.y >= paddle.y - 2 && ball.y <= paddle.y + 2;
+    return ball.y + ball.radius >= paddle.y && ball.y + ball.radius <= paddle.y + 2;
 }
 
 function leftSidePaddleHit(ball, paddle) {
     const paddleLeft = paddle.x;
-    return ball.x >= paddleLeft - 2 && ball.x < paddleLeft + paddle.width / 4;
+    return ball.x + ball.radius >= paddleLeft - 2 && ball.x < paddleLeft + paddle.width / 4;
 }
 
 function middlePaddleHit(ball, paddle) {
@@ -18,7 +18,7 @@ function middlePaddleHit(ball, paddle) {
 
 function rightSidePaddleHit(ball, paddle) {
     const paddleRight = paddle.x + paddle.width;
-    return ball.x >= paddleRight - paddle.width / 4 && ball.x <= paddleRight + 2;
+    return ball.x >= paddleRight - paddle.width / 4 && ball.x - ball.radius <= paddleRight + 2;
 }
 
 function changeSpeedForSameSide(ball) {
@@ -37,6 +37,7 @@ function changeSpeedForSameSide(ball) {
 }
 
 function changeSpeedForDifferentSide(ball) {
+
     const xDirection = ball.dx / Math.abs(ball.dx);
     const yDirection = ball.dy / Math.abs(ball.dy);
 
@@ -55,7 +56,7 @@ function updateBallSpeed(ballGoingOnFarSide, ball) {
     if (!ballGoingOnFarSide) {
         ball.dx = -ball.dx;
     }
-    ball.dy = -ball.dy;
+    ball.dy = -Math.abs(ball.dy);
 
     if (ballGoingOnFarSide) {
         changeSpeedForSameSide(ball);
@@ -82,7 +83,7 @@ export function checkBallPaddleCollision(ball, paddle) {
             updateBallSpeedForLeftPaddleSide(ball);
         }
         else if (middlePaddleHit(ball, paddle)) {
-            ball.dy = -ball.dy;
+            ball.dy = -Math.abs(ball.dy);
         }
         else if (rightSidePaddleHit(ball, paddle)) {
             updateBallSpeedForRightPaddleSide(ball);

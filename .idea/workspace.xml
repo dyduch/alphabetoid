@@ -11,15 +11,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e485d-2f4d-4ccf-ae2f-2fb3ac47d94d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/script/modules/game.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/script/modules/stats.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/BigBallBonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/BigPaddleBonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/FastPaddleBonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/SmallBallBonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/SmallPaddleBonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/ThreeBallBonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/bonus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/script/modules/bonus/bonusSelector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/modules/ball.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/modules/ball.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/modules/bricksCollision.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/modules/bricksCollision.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/modules/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/modules/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/modules/paddle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/modules/paddle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/modules/paddleCollision.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/modules/paddleCollision.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/modules/stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/modules/stats.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +54,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/script/modules/bonus" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/script/modules/bonus" />
+    </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/src/script/modules/collision.js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/script/modules/bonus" />
     </key>
   </component>
   <component name="RunManager">
@@ -79,7 +92,7 @@
       <workItem from="1609881386313" duration="4264000" />
       <workItem from="1609885683645" duration="4326000" />
       <workItem from="1609935622554" duration="8293000" />
-      <workItem from="1609962544208" duration="7110000" />
+      <workItem from="1609962544208" duration="17556000" />
     </task>
     <servers />
   </component>
@@ -99,11 +112,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="767" y="129" width="376" height="566" key="#com.intellij.ide.util.MemberChooser" timestamp="1609968371865">
+    <state x="1088" y="289" width="376" height="566" key="#com.intellij.ide.util.MemberChooser" timestamp="1609978807488">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="767" y="258" width="376" height="566" key="#com.intellij.ide.util.MemberChooser/0.0.1920.2160@0.0.1920.2160" timestamp="1609797098299" />
-    <state x="767" y="129" width="376" height="566" key="#com.intellij.ide.util.MemberChooser/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1609968371865" />
+    <state x="1088" y="289" width="376" height="566" key="#com.intellij.ide.util.MemberChooser/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1609978807488" />
     <state width="1895" height="350" key="GridCell.Tab.0.bottom" timestamp="1609948465761">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -168,9 +181,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1895" height="350" key="GridCell.Tab.3.right/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1609948465762" />
-    <state x="654" y="117" width="611" height="846" key="find.popup" timestamp="1609883715274">
+    <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609972617368">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="654" y="117" width="611" height="846" key="find.popup/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1609883715274" />
+    <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1609972617368" />
+    <state x="654" y="117" width="611" height="846" key="find.popup" timestamp="1609979316314">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="654" y="117" width="611" height="846" key="find.popup/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1609979316314" />
   </component>
 </project>

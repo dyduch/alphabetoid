@@ -1,7 +1,7 @@
 export class Paddle {
 
 
-    constructor(x, y, width, height, minLeft, maxRight) {
+    constructor(x, y, width, height, minLeft, maxRight, speed) {
         this._x = x;
         this._y = y;
         this._width = width;
@@ -9,11 +9,11 @@ export class Paddle {
 
         this._radius = height / 2;
 
-        this.speed = 5;
+        this._speed = speed ? speed : 5;
         this.leftPressed = false;
         this.rightPressed = false;
-        this.minX = minLeft;
-        this.maxX = maxRight;
+        this._minX = minLeft;
+        this._maxX = maxRight;
 
         this.addListeners();
 
@@ -39,6 +39,26 @@ export class Paddle {
         return this._radius;
     }
 
+    get speed() {
+        return this._speed;
+    }
+
+    set speed(value) {
+        this._speed = value;
+    }
+    set width(value) {
+        this._width = value;
+    }
+
+    get minX() {
+        return this._minX;
+    }
+
+    get maxX() {
+        return this._maxX;
+    }
+
+
     draw(ctx) {
         ctx.beginPath();
         ctx.moveTo(this._x + this._radius, this._y);
@@ -62,13 +82,13 @@ export class Paddle {
 
     moveLeft() {
         if (this._x > this.minX) {
-            this._x = this._x - this.speed;
+            this._x = this._x - this._speed;
         }
     }
 
     moveRight() {
         if ((this._x + this._width) < this.maxX) {
-            this._x = this._x + this.speed;
+            this._x = this._x + this._speed;
         }
     }
 

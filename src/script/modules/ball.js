@@ -1,4 +1,6 @@
 export class Ball {
+
+
     constructor(x, y, dx, dy, radius, maxX, maxY) {
 
         this._x = x;
@@ -9,6 +11,7 @@ export class Ball {
         this._baseDx = Math.abs(dx);
         this._baseDy = Math.abs(dy);
 
+        this._defaultRadius = radius;
         this._radius = radius;
 
         this.minX = 0;
@@ -44,6 +47,9 @@ export class Ball {
     get radius() {
         return this._radius;
     }
+    set radius(value) {
+        this._radius = value;
+    }
 
     set dx(value) {
         this._dx = value;
@@ -52,6 +58,11 @@ export class Ball {
     set dy(value) {
         this._dy = value;
     }
+
+    get defaultRadius() {
+        return this._defaultRadius;
+    }
+
 
     draw(ctx) {
         ctx.beginPath();
@@ -66,16 +77,22 @@ export class Ball {
         this._x = this._x + this._dx;
         this._y = this._y + this._dy;
 
-        if (this._x >= this.maxX || this._x <= this.minX) {
+        if (this._x + this._radius >= this.maxX ) {
+            this._x = this.maxX - this._radius;
+            this._dx = -this._dx;
+        } else if (this._x - this._radius <= this.minX ) {
+            this._x = this.minX + this._radius;
             this._dx = -this._dx;
         }
+
         
-        if (this._y <= this.minY ) {
+        if (this._y - this._radius <= this.minY ) {
             this._dy = -this._dy;
         }
 
         if (this._y >= this.maxY ) {
-            window.dispatchEvent(new Event('lostball'));
+            window.dispatchEvent(new CustomEvent('lostball', { 'ball': this }));
+            this._dy = -this._dy;
         }
 
     }
